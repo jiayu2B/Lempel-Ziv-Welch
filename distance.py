@@ -35,6 +35,8 @@ def approxiate_KC_conditional(x, y):
     return KC_conditional
 
 #calculate an approximation for NID = (K(x|y) + K(y|x)) / K(xy)
+#two identical sequences will have NID = 0
+#two sequences with no common information will have NID = 1
 def approximate_NID(x, y):
 
     KC_conditional_xy = approxiate_KC_conditional(x, y)
@@ -46,8 +48,8 @@ def approximate_NID(x, y):
 
 if __name__=='__main__':
 
-    string1 = 'ALGISLDLWNELSLGLS'
-    string2 = 'EORLFNDWENFLSPKIRK'
+    string1 = 'ALDNFSDLNFDKFNSLDKFNKSLIEIRNRKGNA'
+    string2 = 'JSLSIENFLDMVMDLFKF345345345IEIUTJFKFKD'
 
     NID = approximate_NID(string1, string2)
     print "\nNID: %f" % NID

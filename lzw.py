@@ -1,7 +1,7 @@
-from cStringIO import StringIO
+#Purpose: An implementation of the Lempel-Ziv-Welch compression algorithm
 
 #compress a string to a list of output symbols
-def compress(uncompressed):
+def compress(uncompressed_string):
 
     #build the dictionary
     dict_size = 256
@@ -10,7 +10,7 @@ def compress(uncompressed):
 
     w = ""
     result = []
-    for c in uncompressed:
+    for c in uncompressed_string:
         wc = w + c
         if wc in dictionary:
             w = wc
@@ -54,18 +54,3 @@ def calculate_bits(result, is_compressed):
         total_bits = size * 8
 
     return total_bits
-
-if __name__=='__main__':
-
-    string = 'TOBEORNOTTOBEORTOBEORNOT'
-    print "\nInput string:\n" + string
-
-    compressed = compress(string)
-    print "\nCompressed:"
-    print compressed
-
-    total_bits = calculate_bits(string, False)
-    print "\nTotal Bits Uncompressed: %d" % total_bits
-
-    total_bits = calculate_bits(compressed, True)
-    print "\nTotal Bits Compressed: %d" % total_bits

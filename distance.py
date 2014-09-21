@@ -37,6 +37,8 @@ def approxiate_KC_conditional(x, y):
 #calculate an approximation for NID = (K(x|y) + K(y|x)) / K(xy)
 #two identical sequences will have NID = 0
 #two sequences with no common information will have NID = 1
+#but, we a performing an approximation of NID based on Kolmogorov complexity,
+#so the NID returned from this function will only give us an upper bound
 def approximate_NID(x, y):
 
     KC_conditional_xy = approxiate_KC_conditional(x, y)

@@ -1,3 +1,4 @@
+#Purpose: Unit tests for Lempel-Ziv-Welch algorithm
 from lzw import compress
 import unittest
 

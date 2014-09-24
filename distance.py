@@ -7,7 +7,7 @@ from lzw import compress, calculate_bits
 def approximate_KC_string(x):
 
     compressed_string = compress(x)
-    total_bits = calculate_bits(compressed_string, True)
+    total_bits = calculate_bits(compressed_string)
     return total_bits
 
 #calculate an approximation for K(xy) given string x and string y
@@ -15,7 +15,7 @@ def approximate_KC_concat(x, y):
 
     concat = x + y
     compressed_string = compress(concat)
-    total_bits = calculate_bits(compressed_string, True)
+    total_bits = calculate_bits(compressed_string)
     return total_bits
 
 #calculate an approximation for K(xy), which is the denominator in Normalized Information Distance

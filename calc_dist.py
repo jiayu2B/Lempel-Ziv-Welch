@@ -55,6 +55,21 @@ print "\nIdentical sequence NID = %f" % distance
 distance = approximate_NID_v2(x, y)
 print "\nIdentical sequence NID v2 = %f" % distance
 
+#sequences that share no information should have NID=1
+x = "%\QzyGV2UV%7J0WW'PYr|B_Q["
+y = "xm2hJch1fFUyFDc74IP1orUQ"
+distance = approximate_NID(x, y)
+print "\nNon-identical sequence NID = %f" % distance
+distance = approximate_NID_v2(x, y)
+print "\nNon-identical sequence NID v2 = %f" % distance
+
+x = "HU;r[7OGuWdWx@MCu(wBsJ5eQu]"
+y = "abcd"
+distance = approximate_NID(x, y)
+print "\nNon-identical sequence NID = %f" % distance
+distance = approximate_NID_v2(x, y)
+print "\nNon-identical sequence NID v2 = %f" % distance
+
 #we should have D(x,y) = D(y,x) (symmetry)
 x = "AAAAA"
 y = "AAAAA"

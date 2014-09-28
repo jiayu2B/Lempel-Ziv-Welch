@@ -1,9 +1,17 @@
 from kc import *
 
-def calculate(mylist, string_type, string_length):
+def calculate_KC(mylist, string_type, string_length):
     print "%s strings of length %d" % (string_type, string_length)
     for string in mylist:
         print "K(x) = %f" % approximate_KC_string(string)
+
+def calculate_distance(x, y, version, string_length):
+    print "Strings of length %d" % string_length
+    if version == 1:
+        distance = approximate_NID(x, y)
+    else:
+        distance = approximate_NID_v2(x, y)
+    return distance
         
 random_0_50 = "UKp68rHhmumrdGq11aqsg1g9fKmKhiApTGsfkBBZjII6sh5qbC"
 random_1_50 = "j1M7U832GNSkS2psRH3xX9yYKw5iJMqEuLRvKHn4xXeJqrxPUA"
@@ -66,8 +74,8 @@ phrase = [
 ]
 
 string_length = 50
-calculate(random, "Random", string_length)
-calculate(phrase, "Phrase", string_length)
+calculate_KC(random, "Random", string_length)
+calculate_KC(phrase, "Phrase", string_length)
     
 random = [
     random_0_100,
@@ -82,8 +90,8 @@ phrase = [
 ]
 
 string_length = 100
-calculate(random, "Random", string_length)
-calculate(phrase, "Phrase", string_length)
+calculate_KC(random, "Random", string_length)
+calculate_KC(phrase, "Phrase", string_length)
     
 random = [
     random_0_500,
@@ -98,8 +106,8 @@ phrase = [
 ]  
 
 string_length = 500
-calculate(random, "Random", string_length)
-calculate(phrase, "Phrase", string_length)
+calculate_KC(random, "Random", string_length)
+calculate_KC(phrase, "Phrase", string_length)
 
 random = [
     random_0_1000,
@@ -114,8 +122,8 @@ phrase = [
 ]  
 
 string_length = 1000
-calculate(random, "Random", string_length)
-calculate(phrase, "Phrase", string_length)
+calculate_KC(random, "Random", string_length)
+calculate_KC(phrase, "Phrase", string_length)
 
 random = [
     random_0_5000,
@@ -130,8 +138,8 @@ phrase = [
 ]  
 
 string_length = 5000
-calculate(random, "Random", string_length)
-calculate(phrase, "Phrase", string_length)
+calculate_KC(random, "Random", string_length)
+calculate_KC(phrase, "Phrase", string_length)
 
 random = [
     random_0_10000,
@@ -146,5 +154,77 @@ phrase = [
 ]  
 
 string_length = 10000
-calculate(random, "Random", string_length)
-calculate(phrase, "Phrase", string_length)
+calculate_KC(random, "Random", string_length)
+calculate_KC(phrase, "Phrase", string_length)
+
+string_length = 50
+dist = calculate_distance(phrase_0_50, phrase_0_50, 1, string_length)
+print "d1(x,x) = %f" % dist
+dist = calculate_distance(phrase_0_50, phrase_0_50, 2, string_length)
+print "d2(x,x) = %f" % dist
+
+string_length = 100
+dist = calculate_distance(phrase_0_100, phrase_0_100, 1, string_length)
+print "d1(x,x) = %f" % dist
+dist = calculate_distance(phrase_0_100, phrase_0_100, 2, string_length)
+print "d2(x,x) = %f" % dist
+
+string_length = 500
+dist = calculate_distance(phrase_0_500, phrase_0_500, 1, string_length)
+print "d1(x,x) = %f" % dist
+dist = calculate_distance(phrase_0_500, phrase_0_500, 2, string_length)
+print "d2(x,x) = %f" % dist
+
+string_length = 1000
+dist = calculate_distance(phrase_0_1000, phrase_0_1000, 1, string_length)
+print "d1(x,x) = %f" % dist
+dist = calculate_distance(phrase_0_1000, phrase_0_1000, 2, string_length)
+print "d2(x,x) = %f" % dist
+
+string_length = 5000
+dist = calculate_distance(phrase_0_5000, phrase_0_5000, 1, string_length)
+print "d1(x,x) = %f" % dist
+dist = calculate_distance(phrase_0_5000, phrase_0_5000, 2, string_length)
+print "d2(x,x) = %f" % dist
+
+string_length = 10000
+dist = calculate_distance(phrase_0_10000, phrase_0_10000, 1, string_length)
+print "d1(x,x) = %f" % dist
+dist = calculate_distance(phrase_0_10000, phrase_0_10000, 2, string_length)
+print "d2(x,x) = %f" % dist
+
+string_length = 50
+dist = calculate_distance(random_0_50, random_1_50, 1, string_length)
+print "d1(rand,rand) = %f" % dist
+dist = calculate_distance(random_0_50, random_1_50, 2, string_length)
+print "d2(rand,rand) = %f" % dist
+
+string_length = 100
+dist = calculate_distance(random_0_100, random_1_100, 1, string_length)
+print "d1(rand,rand) = %f" % dist
+dist = calculate_distance(random_0_100, random_1_100, 2, string_length)
+print "d2(rand,rand) = %f" % dist
+
+string_length = 500 
+dist = calculate_distance(random_0_500, random_1_500, 1, string_length)
+print "d1(rand,rand) = %f" % dist
+dist = calculate_distance(random_0_500, random_1_500, 2, string_length)
+print "d2(rand,rand) = %f" % dist
+
+string_length = 1000 
+dist = calculate_distance(random_0_1000, random_1_1000, 1, string_length)
+print "d1(rand,rand) = %f" % dist
+dist = calculate_distance(random_0_1000, random_1_1000, 2, string_length)
+print "d2(rand,rand) = %f" % dist
+
+string_length = 5000 
+dist = calculate_distance(random_0_5000, random_1_5000, 1, string_length)
+print "d1(rand,rand) = %f" % dist
+dist = calculate_distance(random_0_5000, random_1_5000, 2, string_length)
+print "d2(rand,rand) = %f" % dist
+
+string_length = 10000 
+dist = calculate_distance(random_0_10000, random_1_10000, 1, string_length)
+print "d1(rand,rand) = %f" % dist
+dist = calculate_distance(random_0_10000, random_1_10000, 2, string_length)
+print "d2(rand,rand) = %f" % dist

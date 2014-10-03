@@ -1,3 +1,4 @@
+#Purpose: Compute gram matrix for a set of strings
 import numpy as np
 from kc import *
 

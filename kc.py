@@ -45,7 +45,7 @@ def approximate_NID(x, y):
     KC_conditional_yx = approxiate_KC_conditional(y, x)
     KC_concat_normalization = approximate_KC_concat_for_normalization(x, y)
     NID = float(KC_conditional_xy + KC_conditional_yx) / KC_concat_normalization
-    print "\nK(x|y) = %f, K(y|x) = %f, K(xy) = %f" % (KC_conditional_xy, KC_conditional_yx, KC_concat_normalization)
+    #print "\nK(x|y) = %f, K(y|x) = %f, K(xy) = %f" % (KC_conditional_xy, KC_conditional_yx, KC_concat_normalization)
     return NID
 
 def approximate_NID_v2(x, y):
@@ -55,5 +55,5 @@ def approximate_NID_v2(x, y):
     KC_x = approximate_KC_string(x)
     KC_y = approximate_KC_string(y)
     NID = (float(max(KC_conditional_xy, KC_conditional_yx)))/(max(KC_x, KC_y))
-    print "\nK(x|y) = %f, K(y|x) = %f, K(x) = %f, K(y) = %f" % (KC_conditional_xy, KC_conditional_yx, KC_x, KC_y)
+    #print "\nK(x|y) = %f, K(y|x) = %f, K(x) = %f, K(y) = %f" % (KC_conditional_xy, KC_conditional_yx, KC_x, KC_y)
     return NID
